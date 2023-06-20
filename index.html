@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz de Posicionamento de Raio-X</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    
+    h1 {
+      margin-bottom: 20px;
+    }
+    
+    #quiz {
+      width: 500px;
+      margin: 0 auto;
+    }
+    
+    #quiz input[type="radio"] {
+      margin-right: 5px;
+    }
+    
+    #submit-btn {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Quiz de Posicionamento de Raio-X</h1>
+
+  <div id="quiz">
+    <form onsubmit="return false;">
+      <h3>Questão 1:</h3>
+      <p>Qual é o posicionamento correto para uma radiografia de tórax?</p>
+      <input type="radio" name="q1" value="a"> PA (posteroanterior)<br>
+      <input type="radio" name="q1" value="b"> AP (anteroposterior)<br>
+      <input type="radio" name="q1" value="c"> Lateral<br>
+      <br>
+      
+      <h3>Questão 2:</h3>
+      <p>Qual é o posicionamento correto para uma radiografia de coluna lombar em perfil?</p>
+      <input type="radio" name="q2" value="a"> Em decúbito dorsal<br>
+      <input type="radio" name="q2" value="b"> Em ortostase<br>
+      <input type="radio" name="q2" value="c"> Em posição oblíqua<br>
+      <br>
+      
+      <h3>Questão 3:</h3>
+      <p>Qual é o posicionamento correto para uma radiografia de crânio em perfil?</p>
+      <input type="radio" name="q3" value="a"> Com o paciente deitado em decúbito ventral<br>
+      <input type="radio" name="q3" value="b"> Com o paciente sentado<br>
+      <input type="radio" name="q3" value="c"> Com o paciente em posição ereta<br>
+      <br>
+      
+      <h3>Questão 4:</h3>
+      <p>Qual é o posicionamento correto para uma radiografia de joelho em perfil?</p>
+      <input type="radio" name="q4" value="a"> Com o joelho flexionado a 90 graus<br>
+      <input type="radio" name="q4" value="b"> Com o joelho estendido<br>
+      <input type="radio" name="q4" value="c"> Com o joelho em posição oblíqua<br>
+      <br>
+      
+      <h3>Questão 5:</h3>
+      <p>Qual é o posicionamento correto para uma radiografia de seios da face?</p>
+      <input type="radio" name="q5" value="a"> PA (posteroanterior)<br>
+      <input type="radio" name="q5" value="b"> Waters<br>
+      <input type="radio" name="q5" value="c"> Caldwell<br>
+      <br>
+      
+      <h3>Questão 6:</h3>
+      <p>Qual é o posicionamento correto para uma radiografia de punho em perfil?</p>
+      <input type="radio" name="q6" value="a"> Com o punho em rotação interna<br>
+      <input type="radio" name="q6" value="b"> Com o punho em rotação externa<br>
+      <input type="radio" name="q6" value="c"> Com o punho em posição neutra<br>
+      <br>
+      
+      <h3>Questão 7:</h3>
+      <p>Qual é o posicionamento correto para uma radiografia de ombro em ântero-posterior?</p>
+      <input type="radio" name="q7" value="a"> Com o braço em rotação interna<br>
+      <input type="radio" name="q7" value="b"> Com o braço em rotação externa<br>
+      <input type="radio" name="q7" value="c"> Com o braço em posição neutra<br>
+      <br>
+      
+      <h3>Questão 8:</h3>
+      <p>Qual é o posicionamento correto para uma radiografia de cavum?</p>
+      <input type="radio" name="q8" value="a"> AP (anteroposterior)<br>
+      <input type="radio" name="q8" value="b"> Lateral<br>
+      <input type="radio" name="q8" value="c"> Com o paciente em decúbito dorsal<br>
+      <br>
+      
+      <h3>Questão 9:</h3>
+      <p>Qual é o posicionamento correto para uma radiografia de pelve em ântero-posterior?</p>
+      <input type="radio" name="q9" value="a"> Com as pernas em rotação interna<br>
+      <input type="radio" name="q9" value="b"> Com as pernas em rotação externa<br>
+      <input type="radio" name="q9" value="c"> Com as pernas em posição neutra<br>
+      <br>
+      
+      <h3>Questão 10:</h3>
+      <p>Qual é o posicionamento correto para uma radiografia de tornozelo em perfil?</p>
+      <input type="radio" name="q10" value="a"> Com o pé em dorsiflexão<br>
+      <input type="radio" name="q10" value="b"> Com o pé em flexão plantar<br>
+      <input type="radio" name="q10" value="c"> Com o pé em posição neutra<br>
+      <br>
+      
+      <button id="submit-btn" onclick="verificarRespostas()">Enviar</button>
+    </form>
+  </div>
+
+  <script>
+    function verificarRespostas() {
+      var pontuacao = 0;
+
+      // Verificar as respostas selecionadas
+      var respostas = {
+        q1: "a",
+        q2: "b",
+        q3: "c",
+        q4: "a",
+        q5: "b",
+        q6: "c",
+        q7: "a",
+        q8: "b",
+        q9: "c",
+        q10: "a"
+      };
+
+      for (var i = 1; i <= 10; i++) {
+        var resposta = document.querySelector('input[name="q' + i + '"]:checked');
+        if (resposta && resposta.value === respostas['q' + i]) {
+          pontuacao++;
+        }
+      }
+
+      // Exibir a pontuação final
+      var resultado = document.getElementById("resultado");
+      resultado.textContent = "Sua pontuação final é: " + pontuacao + "/10";
+    }
+  </script>
+
+  <p id="resultado"></p>
+</body>
+</html>
